@@ -2,6 +2,7 @@ import datetime
 
 class Board:
     def __init__(self):
+        ### thisis the initazliser function for the board class
         self.currentBoard=[]
         for row in range(6):
             self.currentBoard.append([])
@@ -9,6 +10,7 @@ class Board:
                 self.currentBoard[row].append(".")
 
     def printBoard(self):
+        ### this prints out the board
         print("1 2 3 4 5 6 7")
         for row in self.currentBoard:
             for col in row:
@@ -16,6 +18,7 @@ class Board:
             print("\n")
 
     def updateBoard(self, col, playermark):
+        ### updates the board
         valid=False
         while not valid:
             try:
@@ -38,6 +41,7 @@ class Board:
     
 
     def checkWin(self, playermark):
+        ### checks if there is a winning condition
         rowIndex=5
         # were checking bottom up(if there is a column win)
         for colIndex in range(7):
@@ -75,6 +79,7 @@ class Board:
                 colIndex-=1
     
     def save(self, currentBoard, player1, player2, turn):
+        ###saves the game state
         saved=[]
         time=datetime.now().time()
         saved.append(currentBoard)
